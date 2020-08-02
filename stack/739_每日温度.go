@@ -1,4 +1,4 @@
-package others
+package stack
 
 /*请根据每日 气温 列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，请在该位置用 0 来代替。
 
@@ -8,14 +8,17 @@ package others
 
 func dailyTemperatures(T []int) []int {
 	n := len(T)
-	resList := make([]int,n)
-	for i,v := range T{
-		for j:=i+1;j<n;j++{
-			if v < T[j]{
-				resList[i] = j - i
-				break
-			}
+	resList := make([]int, n)
+	stack := []int{}
+	for i := 0; i < n; i++ {
+		temperature := T[i]
+		for len(stack) > 0 && temperature > T[stack[len(stack)-1]] {
+			prevIndex := stack[len(stack)-1]
+			stack = stack[:len(stack)-1]
+			resList[prevIndex] = i - prevIndex
 		}
+		stack = append(stack, i)
 	}
+
 	return resList
 }
