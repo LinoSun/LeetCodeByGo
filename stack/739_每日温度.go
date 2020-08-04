@@ -9,7 +9,7 @@ package stack
 func dailyTemperatures(T []int) []int {
 	n := len(T)
 	resList := make([]int, n)
-	stack := []int{}
+	var stack []int
 	for i := 0; i < n; i++ {
 		temperature := T[i]
 		for len(stack) > 0 && temperature > T[stack[len(stack)-1]] {
