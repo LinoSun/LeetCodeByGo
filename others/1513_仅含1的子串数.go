@@ -28,7 +28,16 @@ package others
 解释：每个子字符串都仅由 '1' 组成
 */
 func numSub(s string) int {
+	sArr := []byte(s)
 	res,count := 0,0
-
+	for _,v := range sArr{
+		if v == '0'{
+			res += count * (count + 1)/2
+			count = 0
+		} else {
+			count += 1
+		}
+	}
+	res += count * (count + 1)/2
 	return res
 }
