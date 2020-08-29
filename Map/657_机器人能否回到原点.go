@@ -14,5 +14,19 @@ package Map
 解释：机器人向上移动一次，然后向下移动一次。所有动作都具有相同的幅度，因此它最终回到它开始的原点。因此，我们返回 true。
 */
 func judgeCircle(moves string) bool {
-
+	x, y := 0, 0
+	length := len(moves)
+	for i := 0; i < length; i++ {
+		switch moves[i] {
+		case 'U':
+			y--
+		case 'D':
+			y++
+		case 'L':
+			x--
+		case 'R':
+			x++
+		}
+	}
+	return x == 0 && y == 0
 }
