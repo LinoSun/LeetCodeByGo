@@ -1,4 +1,4 @@
-package others
+package Others
 
 /*给你一个二进制字符串 s（仅由 '0' 和 '1' 组成的字符串）。
 

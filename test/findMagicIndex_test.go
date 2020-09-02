@@ -1,7 +1,7 @@
 package main
 
 import (
-	"goleetcode/others"
+	"goleetcode/Others"
 	"testing"
 )
 
@@ -18,7 +18,7 @@ func TestFindMagicIndex(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		if actual := others.FindMagicIndex(test.nums); actual != test.excepted {
+		if actual := Others.FindMagicIndex(test.nums); actual != test.excepted {
 			t.Error("error")
 		}
 	}

@@ -1,4 +1,4 @@
-package stack
+package Stack
 
 /*使用栈实现队列的下列操作：
 
