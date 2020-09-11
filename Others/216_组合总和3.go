@@ -15,3 +15,7 @@ package Others
 
 输入: k = 3, n = 9
 输出: [[1,2,6], [1,3,5], [2,3,4]]*/
+
+func combinationSum3(k int, n int) [][]int {
+	111
+}
