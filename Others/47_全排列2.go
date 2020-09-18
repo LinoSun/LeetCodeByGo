@@ -1,4 +1,7 @@
 package Others
+
+import "sort"
+
 /*给定一个可包含重复数字的序列，返回所有不重复的全排列。
 
 示例:
@@ -11,6 +14,28 @@ package Others
 [2,1,1]
 ]
 */
-func permuteUnique(nums []int) [][]int {
-
+func permuteUnique(nums []int) (ans [][]int) {
+	sort.Ints(nums)
+	n := len(nums)
+	perm := []int{}
+	vis := make([]bool, n)
+	var backtrack func(int)
+	backtrack = func(idx int) {
+		if idx == n {
+			ans = append(ans, append([]int(nil), perm...))
+			return
+		}
+		for i, v := range nums {
+			if vis[i] || i > 0 && !vis[i-1] && v == nums[i-1] {
+				continue
+			}
+			perm = append(perm, v)
+			vis[i] = true
+			backtrack(idx + 1)
+			vis[i] = false
+			perm = perm[:len(perm)-1]
+		}
+	}
+	backtrack(0)
+	return
 }
