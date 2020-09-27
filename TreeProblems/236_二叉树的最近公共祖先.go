@@ -17,14 +17,17 @@ package TreeProblems
 */
 
 func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
+	// 递归终止条件
 	if root == nil{
 		return nil
 	}
+	// 特殊条件
 	if root.Val == p.Val || root.Val == q.Val{
 		return root
 	}
 	left := lowestCommonAncestor(root.Left,p,q)
 	right := lowestCommonAncestor(root.Right,p,q)
+	// 两边都不为空，所以是想要的值
 	if left != nil && right != nil{
 		return root
 	}
@@ -34,5 +37,6 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	if right == nil{
 		return left
 	}
-	return left
+	// 最后，如果两个节点都没有返回的话直接return nil
+	return nil
 }
